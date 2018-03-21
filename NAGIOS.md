@@ -1,7 +1,7 @@
 # Summary
 Here you can find detailed instructions and examples to send [Slack](https://slack.com/) notifications from [Nagios](https://www.nagios.org/) using the `slack-nagios-alert.sh` shell script.
 
-# Synopsys
+# Synopsis
 Usage: `slack-nagios-alert.sh [OPTIONS]`, where `[OPTIONS]` are as follows:
 * `-U <SLACK WEBHOOK URL>`: the URL of the Slack webkhook. See below on how to get one
 * `-t <SLACK TEAM>`: the slack team name. This is the first part of the Slack URL you use (i.e. if your Slack is at `myrockingteam.slack.com` then the team name to use here is `myrockingteam`)
