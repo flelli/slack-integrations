@@ -2,8 +2,18 @@
 Here are some scripts and utilities I'm using to integrate [Slack](https://slack.com/) with other apps and services.
 Use them freely.
 
-* [nagios](nagios) contains scripts used for [Nagios](https://www.nagios.org/)
-* [zabbix](zabbix) contains scripts used for [Zabbix](https://www.zabbix.com/)
+These scripts have been tested with:
+* [Nagios](https://www.nagios.org/)
+* [Zabbix](https://www.zabbix.com/)
+Below you can find instructions on how to set them up.
+
+## Slack alert notification scripts
+* `slack-nagios-alert.sh` is the script specifically tailored for [Nagios](https://www.nagios.org/) that sends alerts to [Slack](https://slack.com/)
+* `slack-zabbix-alert.sh`, on the other hand, is suited for [Zabbix](https://www.zabbix.com/)
+
+These scripts send meaningful and well formatted notifications to Slack that look like these:
+
+As you can see different colors are used to give a quick idea of the severity.
 
 # Set up
 ## Set up the Slack Webhook
@@ -16,3 +26,6 @@ Then you're ready to set up your webhook by following these simple steps:
 3. in the next page take note of the **Webhook URL** that was generated and optionally set other fields like the webhook label, name, icon etc. The URL looks like `https://hooks.slack.com/services/ABCDEFGHI/FGHIJKLMN/123abc456def789ldt645Bgs`. In the **Customize Name** field you can set the username you want notifications to appear from. For example you may set `nagios` or `zabbix`
 
 Now you're ready to go on the Slack side and you can start sending notifications.
+
+## Set up Slack alert notifications for Nagios
+Before you go any further you can test the script by sending manual notifications and simulate alerts.
