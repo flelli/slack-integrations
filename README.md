@@ -1,5 +1,5 @@
 # Summary
-Here are some scripts and utilities I'm using to integrate [Slack](https://slack.com/) with other apps and services.
+Here are some scripts and utilities I'm using to integrate [Slack](https://slack.com/) with other apps and services. They don't use Perl. Instead, they're simple *bash* script that only require [curl](https://curl.haxx.se/) to be installed.
 Use them freely.
 
 These scripts have been tested with:
@@ -31,18 +31,42 @@ Before you go any further you can test the script by sending manual notification
 # Example screenshots
 A *CRITICAL* message about a *HOST* from Nagios
 ![Nagios Critical Host Alert](screenshots/nagios-host-critical-example.jpg)
+You can simulate this message by invoking the `slack-nagios-alert.sh` manually like:
+```
+./slack-nagios-alert.sh -U "<WEBHOOK_URL>" -t <SLACK_TEAM> -c <SLACK_CHANNEL> -u <SLACK_USER> -W HOST -Y PROBLEM -H bigbox.example.com -A 192.168.1.1 -X CRITICAL -M "Host down" -T "Mon Oct 17 06:00:00 CEST 2016" -Q "http://nagios.example.com/nagios"
+```
 
 A *WARNING* message about a *HOST* from Nagios
 ![Nagios Warning Host Alert](screenshots/nagios-host-warning-example.jpg)
+You can simulate this message by invoking the `slack-nagios-alert.sh` manually like:
+```
+./slack-nagios-alert.sh -U "<WEBHOOK_URL>" -t <SLACK_TEAM> -c <SLACK_CHANNEL> -u <SLACK_USER> -W HOST -Y WARNING -H bigbox.example.com -A 192.168.1.1 -X CRITICAL -M "Host unreachable" -T "Mon Oct 17 06:00:00 CEST 2016" -Q "http://nagios.example.com/nagios"
+```
 
 An *OK* message about a *HOST* from Nagios
 ![Nagios OK Host Alert](screenshots/nagios-host-ok-example.jpg)
+You can simulate this message by invoking the `slack-nagios-alert.sh` manually like:
+```
+./slack-nagios-alert.sh -U "<WEBHOOK_URL>" -t <SLACK_TEAM> -c <SLACK_CHANNEL> -u <SLACK_USER> -W HOST -Y WARNING -H bigbox.example.com -A 192.168.1.1 -X OK -M "Host is now OK" -T "Mon Oct 17 06:00:00 CEST 2016" -Q "http://nagios.example.com/nagios"
+```
 
 A *CRITICAL* message about a *SERVICE* from Nagios
 ![Nagios Critical Host Alert](screenshots/nagios-service-critical-example.jpg)
+You can simulate this message by invoking the `slack-nagios-alert.sh` manually like:
+```
+./slack-nagios-alert.sh -U "<WEBHOOK_URL>" -t <SLACK_TEAM> -c <SLACK_CHANNEL> -u <SLACK_USER> -W SERVICE -Y PROBLEM -H bigbox.example.com -A 192.168.1.1 -S SSH -X CRITICAL -M "Service down" -T "Mon Oct 17 06:00:00 CEST 2016" -Q "http://nagios.example.com/nagios"
+```
 
 A *WARNING* message about a *SERVICE* from Nagios
 ![Nagios Warning Host Alert](screenshots/nagios-service-warning-example.jpg)
+You can simulate this message by invoking the `slack-nagios-alert.sh` manually like:
+```
+./slack-nagios-alert.sh -U "<WEBHOOK_URL>" -t <SLACK_TEAM> -c <SLACK_CHANNEL> -u <SLACK_USER> -W SERVICE -Y PROBLEM -H bigbox.example.com -A 192.168.1.1 -S SSH -X WARNING -M "Service unreachable" -T "Mon Oct 17 06:00:00 CEST 2016" -Q "http://nagios.example.com/nagios"
+```
 
 An *OK* message about a *SERVICE* from Nagios
 ![Nagios OK Host Alert](screenshots/nagios-service-ok-example.jpg)
+You can simulate this message by invoking the `slack-nagios-alert.sh` manually like:
+```
+./slack-nagios-alert.sh -U "<WEBHOOK_URL>" -t <SLACK_TEAM> -c <SLACK_CHANNEL> -u <SLACK_USER> -W SERVICE -Y PROBLEM -H bigbox.example.com -A 192.168.1.1 -S SSH -X OK -M "Service is now OK" -T "Mon Oct 17 06:00:00 CEST 2016" -Q "http://nagios.example.com/nagios"
+```
