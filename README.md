@@ -12,6 +12,9 @@ Below you can find instructions on how to set them up.
 * `slack-zabbix-alert.sh`, on the other hand, is suited for [Zabbix](https://www.zabbix.com/)
 
 These scripts send meaningful and well formatted notifications to Slack that look like these:
+![Nagios Critical Host Alert](screenshots/nagios-host-critical-example.jpg)
+![Nagios Warning Host Alert](screenshots/nagios-host-warning-example.jpg)
+![Nagios OK Host Alert](screenshots/nagios-host-ok-example.jpg)
 
 As you can see different colors are used to give a quick idea of the severity.
 
