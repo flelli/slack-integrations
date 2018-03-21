@@ -11,12 +11,7 @@ Below you can find instructions on how to set them up.
 * `slack-nagios-alert.sh` is the script specifically tailored for [Nagios](https://www.nagios.org/) that sends alerts to [Slack](https://slack.com/)
 * `slack-zabbix-alert.sh`, on the other hand, is suited for [Zabbix](https://www.zabbix.com/)
 
-These scripts send meaningful and well formatted notifications to Slack that look like these:
-![Nagios Critical Host Alert](screenshots/nagios-host-critical-example.jpg)
-![Nagios Warning Host Alert](screenshots/nagios-host-warning-example.jpg)
-![Nagios OK Host Alert](screenshots/nagios-host-ok-example.jpg)
-
-As you can see different colors are used to give a quick idea of the severity.
+As you can see from the example screenshots below, these scripts send meaningful and well formatted notifications to Slack, using different colors to give a quick idea of the severity. Moreover, back links are provided so that you just need to click on them to open the issue specific page of the monitoring platform.
 
 # Set up
 ## Set up the Slack Webhook
@@ -32,3 +27,22 @@ Now you're ready to go on the Slack side and you can start sending notifications
 
 ## Set up Slack alert notifications for Nagios
 Before you go any further you can test the script by sending manual notifications and simulate alerts.
+
+# Example screenshots
+A *CRITICAL* message about a *HOST* from Nagios
+![Nagios Critical Host Alert](screenshots/nagios-host-critical-example.jpg)
+
+A *WARNING* message about a *HOST* from Nagios
+![Nagios Warning Host Alert](screenshots/nagios-host-warning-example.jpg)
+
+An *OK* message about a *HOST* from Nagios
+![Nagios OK Host Alert](screenshots/nagios-host-ok-example.jpg)
+
+A *CRITICAL* message about a *SERVICE* from Nagios
+![Nagios Critical Host Alert](screenshots/nagios-service-critical-example.jpg)
+
+A *WARNING* message about a *SERVICE* from Nagios
+![Nagios Warning Host Alert](screenshots/nagios-service-warning-example.jpg)
+
+An *OK* message about a *SERVICE* from Nagios
+![Nagios OK Host Alert](screenshots/nagios-service-ok-example.jpg)
