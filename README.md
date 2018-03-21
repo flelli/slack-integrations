@@ -15,7 +15,7 @@ Below you can find instructions on how to set them up along with some examples.
 As you can see from the example screenshots below, these scripts send meaningful and well formatted notifications to Slack, using different colors to give a quick idea of the severity. Moreover, back links are provided so that you just need to click on them to open the issue specific page of the monitoring platform.
 
 ### Nagios notification script synopsys
-Usage: `slack-nagios-alert.sh [OPTIONS]`
+Usage: `slack-nagios-alert.sh [OPTIONS]`, where `[OPTIONS]` are as follows:
 * `-U <SLACK WEBHOOK URL>`: the URL of the Slack webkhook. See below on how to get one
 * `-t <SLACK TEAM>`: the slack team name. This is the first part of the Slack URL you use (i.e. if your Slack is at `myrockingteam.slack.com` then the team name to use here is `myrockingteam`)
 * `-c <SLACK CHANNEL>`: the Slack channel name (without the leading '#', e.e. \"monitoring\" for using the \"#monitoring\" channel). This may be ignored if the Slack webhook is configured for a fixed channel.
