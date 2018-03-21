@@ -5,7 +5,8 @@ Use them freely.
 These scripts have been tested with:
 * [Nagios](https://www.nagios.org/)
 * [Zabbix](https://www.zabbix.com/)
-Below you can find instructions on how to set them up.
+
+Below you can find instructions on how to set them up along with some examples.
 
 ## Slack alert notification scripts
 * `slack-nagios-alert.sh` is the script specifically tailored for [Nagios](https://www.nagios.org/) that sends alerts to [Slack](https://slack.com/)
