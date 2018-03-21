@@ -14,6 +14,24 @@ Below you can find instructions on how to set them up along with some examples.
 
 As you can see from the example screenshots below, these scripts send meaningful and well formatted notifications to Slack, using different colors to give a quick idea of the severity. Moreover, back links are provided so that you just need to click on them to open the issue specific page of the monitoring platform.
 
+### Nagios notification script synopsys
+Usage: `slack-nagios-alert.sh [OPTIONS]`
+* `-U <SLACK WEBHOOK URL>`: the URL of the Slack webkhook. See below on how to get one
+* `-t <SLACK TEAM>`: the slack team name. This is the first part of the Slack URL you use (i.e. if your Slack is at `myrockingteam.slack.com` then the team name to use here is `myrockingteam`)
+* `-c <SLACK CHANNEL>`: the Slack channel name (without the leading '#', e.e. \"monitoring\" for using the \"#monitoring\" channel). This may be ignored if the Slack webhook is configured for a fixed channel.
+* `-u <SLACK USER>`: the user to display as the message sender on Slack (i.e. \"nagios\"). This may be ignored if the Slack webhook is configured for a fixed user.
+* `-W <NAGIOS TYPE>`: set it to `HOST` if it's an host notification or `SERVICE` if it's a service notification
+* `-Y <NAGIOS NOTIFICATION TYPE>`: the notification type (i.e. `PROBLEM`) coming from Nagios
+* `-H <NAGIOS HOST NAME>`: the host name coming from Nagios (i.e. `nagios.example.com`)
+* `-A <NAGIOS HOST IP ADDRESS>`: this is the host IP address coming from Nagios
+* `-S <NAGIOS SERVICE NAME>`: the service name the notification is about
+* `-X <NAGIOS STATE>`: the Nagios issue severity and can be `CRITICAL`, `WARNING`, `OK`. This will also determine the colors used in the Slack message
+* `-M <NAGIOS OUTPUT>`: the service or host output message coming Nagios (i.e. an error message)
+* `-T <NAGIOS TIMESTAMP>`: the message timestamp coming from Nagios
+* `-Q <NAGIOS SERVER BASE URL>`: the base URL of the Nagios server. This is used to build URLs in the notification message that can be clicked to access the Nagios page for the problem. This DNS name may be a private name, in this case just remember that the back link will work only when connected to the private network that resolves that DNS name
+
+Examples are provided below along with the resulting screenshots.
+
 # Set up
 ## Set up the Slack Webhook
 In order to receive notifications you need an active Slack team and know which channel you will send the notifications to. You may wish to set up a new channel for notifications.
