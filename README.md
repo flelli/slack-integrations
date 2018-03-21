@@ -2,10 +2,7 @@
 Here are some scripts and utilities I'm using to integrate [Slack](https://slack.com/) with other apps and services. They don't use Perl. Instead, they're simple *bash* script that only require [curl](https://curl.haxx.se/) to be installed.
 Use them freely.
 
-These scripts have been tested with:
-* [Nagios](https://www.nagios.org/)
-* [Zabbix](https://www.zabbix.com/)
-
+These scripts have been tested with [Nagios](https://www.nagios.org/) and [Zabbix](https://www.zabbix.com/).
 Below you can find instructions on how to set them up along with some examples.
 
 ## Slack alert notification scripts
