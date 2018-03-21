@@ -27,7 +27,44 @@ Then you're ready to set up your webhook by following these simple steps:
 Now you're ready to go on the Slack side and you can start sending notifications.
 
 ## Set up Slack alert notifications for Nagios
-Before you go any further you can test the script by sending manual notifications and simulate alerts.
+Before you go any further you can test the script by sending manual notifications and simulate alerts. Example command lines are povided below along with the example screenshots.
+
+## Nagios settings
+
+### Copy the script in the Nagios folder
+You first have to copy the `/slack-nagios-alert.sh` script in the Nagios plugins directory, usually `/usr/local/nagios/libexec/`. Also make sure that the Nagios user has execution rights on the script.
+
+### Define the notification commands in Nagios configuration
+In the commands configuration file (usually `objects/commands.cfg`) add the Slack notification command. We need two commands, one for service notifications and one for hosts. Full descriptions is available in the [official Nagios docs](https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/objectdefinitions.html#command). What follows is an example:
+```
+# The commands used for Slack channel notifications. They use custom address fields (addressX) to define Slack specific parameters
+define command {
+   command_name     service-notify-by-slack
+   command_line     /usr/local/nagios/libexec/slack-nagios-alert.sh -U '$CONTACTADDRESS3$' -Q 'http://nagios.example.com/nagios' -t '$CONTACTADDRESS1$' -c '$CONTACTADDRESS2$' -u nagios -W SERVICE -Y '$NOTIFICATIONTYPE$' -S '$SERVICEDESC$' -H '$HOSTNAME$' -A '$HOSTADDRESS$' -X '$SERVICESTATE$' -M '$SERVICEOUTPUT$' -T '$LONGDATETIME$'
+}
+
+define command {
+      command_name     host-notify-by-slack
+      command_line     /usr/local/nagios/libexec/slack-nagios-alert.sh -U '$CONTACTADDRESS3$' -Q 'http://nagios.example.com/nagios' -t '$CONTACTADDRESS1$' -c '$CONTACTADDRESS2$' -u nagios -W HOST -Y '$NOTIFICATIONTYPE$' -H '$HOSTNAME$' -A '$HOSTADDRESS$' -X '$SERVICESTATE$' -M '$SERVICEOUTPUT$' -T '$LONGDATETIME$'
+}
+```
+
+### Define the contact in Nagios configuration
+In the contacts configuration file (usually `objects/contacts.cfg`) add the Slack notification contact. Full descriptions is available in the [official Nagios docs](https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/objectdefinitions.html#contact). What follows is an example:
+```
+define contact{
+   contact_name                    slack
+   alias                           Slack
+   
+   service_notification_commands   service-notify-by-slack
+   host_notification_commands      host-notify-by-slack
+
+   address1                        SLACK_TEAM              ; set the name of the Slack team
+   address2                        SLACK_CHANNEL           ; set the name of the Slack channel to post to
+   # Use the Slack Webhook URL here
+   address3                        https://hooks.slack.com/services/ABCDEFGHI/FGHIJKLMN/123abc456def789ldt645Bgs
+        }
+```
 
 # Example screenshots
 ## A *CRITICAL* message about a *HOST* from Nagios
