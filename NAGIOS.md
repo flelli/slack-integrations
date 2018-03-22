@@ -114,10 +114,13 @@ You can simulate this message by invoking the `slack-nagios-alert.sh` manually l
 Here is how the same message appears with different verbosities set in the `-v <MESSAGE VERBOSITY>`:
 
 With `-v "ONELINE"`:
+
 ![Nagios OK Host Alert](screenshots/nagios-verbosity-oneline-example.jpg)
 
 With `-v "COMPACT"`:
+
 ![Nagios OK Host Alert](screenshots/nagios-verbosity-compact-example.jpg)
 
 With `-v "DETAILED"`:
+
 ![Nagios OK Host Alert](screenshots/nagios-verbosity-detailed-example.jpg)
