@@ -42,15 +42,23 @@ Also consider that the `<SLACK USER>` and `<MESSAGE VERBOSITY>` have default val
 ## Set up the Slack Notification user in Zabbix
 On the Zabbix console (make sure you have administrative rights), open **Administration -> Users** and click on **Create user** on the top right. Fill in the parameters like in the following screenshot, changing them to your needs and adjust the group membership to your organization but make sure it has the rights to see events and alerts.
 
-![Zabbix Media Type Set Up](screenshots/zabbix-setup-slack-user.jpg)
+![Zabbix User Set Up](screenshots/zabbix-setup-slack-user.jpg)
 
 Now click on **Media** and set the media parameters like in the following screenshot. In the **Sent to** parameter you have to set the Slack channel name (with the leading `#`) that you want to send messages to. In case you were setting the media for individual users instead of a channel, on the users' settings you should've set something like `@username`, where `username` is the one on Slack, not on Zabbix.
 
-![Zabbix Media Type Set Up](screenshots/zabbix-setup-slack-user-media.jpg)
+![Zabbix User Media Set Up](screenshots/zabbix-setup-slack-user-media.jpg)
 
 ## Set up the Slack Notification action in Zabbix
+On the Zabbix console (make sure you have administrative rights), open **Configuration -> Actions** and click on **Create action** on the top right. Fill in the parameters like in the following screenshots, changing them to your needs.
 
+![Zabbix Action Set Up](screenshots/zabbix-setup-slack-action.jpg)
 
+![Zabbix Action Operations Set Up](screenshots/zabbix-setup-slack-action-operations.jpg)
+
+![Zabbix Action Recovery Set Up](screenshots/zabbix-setup-slack-action-recovery.jpg)
+
+## Test the messages
+Now you should be able to receive messages on Slack upon alerts.
 
 ## Example screenshots
 ### A *High* priority problem message from Zabbix
