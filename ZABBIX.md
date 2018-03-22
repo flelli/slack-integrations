@@ -32,7 +32,7 @@ On the Zabbix console (make sure you have administrative rights), open **Adminis
 
 ![Zabbix Media Type Set Up](screenshots/zabbix-setup-media-type.jpg)
 
-
+**WARNING: Because of a Zabbix limitation that only accepts parameters up to 255 characters you may receive an error at this point**. While waiting for this limitation to be overcome by Zabbix, you can skip some parameters and hardcode them in the `slack-zabbix-alert.sh` script. In this case, just moving the Webhook url in there should be enough.
 
 
 
