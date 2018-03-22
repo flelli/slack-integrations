@@ -115,12 +115,12 @@ Here is how the same message appears with different verbosities set in the `-v <
 
 With `-v "ONELINE"`:
 
-![Nagios OK Host Alert](screenshots/nagios-verbosity-oneline-example.jpg)
+![Nagios One Line Alert](screenshots/nagios-verbosity-oneline-example.jpg)
 
 With `-v "COMPACT"`:
 
-![Nagios OK Host Alert](screenshots/nagios-verbosity-compact-example.jpg)
+![Nagios Compact Alert](screenshots/nagios-verbosity-compact-example.jpg)
 
 With `-v "DETAILED"`:
 
-![Nagios OK Host Alert](screenshots/nagios-verbosity-detailed-example.jpg)
+![Nagios Detailed Alert](screenshots/nagios-verbosity-detailed-example.jpg)
