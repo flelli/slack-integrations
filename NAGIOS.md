@@ -109,3 +109,15 @@ You can simulate this message by invoking the `slack-nagios-alert.sh` manually l
 ```
 ./slack-nagios-alert.sh -U "<WEBHOOK_URL>" -t "<SLACK_TEAM>" -c "<SLACK_CHANNEL>" -u "nagios@nagios.example.com" -v "DETAILED" -I "SERVICE" -Y "PROBLEM" -H "bigbox.example.com" -A "192.168.1.1" -S "SSH Service" -X "OK" -M "Service is now OK" -T "Mon Oct 17 06:00:00 CEST 2016" -Q "http://nagios.example.com/nagios/"
 ```
+
+### Using verbosity
+Here is how the same message appears with different verbosities set in the `-v <MESSAGE VERBOSITY>`:
+
+With `-v "ONELINE"`:
+![Nagios OK Host Alert](screenshots/nagios-verbosity-oneline-example.jpg)
+
+With `-v "COMPACT"`:
+![Nagios OK Host Alert](screenshots/nagios-verbosity-compact-example.jpg)
+
+With `-v "DETAILED"`:
+![Nagios OK Host Alert](screenshots/nagios-verbosity-detailed-example.jpg)
