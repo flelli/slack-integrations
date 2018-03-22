@@ -23,56 +23,14 @@ Examples are provided below along with the resulting screenshots.
 # Set up
 
 ## Copy the script in the Zabbix folder
-You first have to copy the `/slack-nagios-alert.sh` script in the Zabbix plugins directory, usually `/usr/lib/zabbix/alertscripts/`. Also make sure that the Zabbix user has execution rights on the script.
+You first have to copy the `/slack-zabbix-alert.sh` script in the Zabbix plugins directory, usually `/usr/lib/zabbix/alertscripts/`. Also make sure that the Zabbix user has execution rights on the script.
 
 Before you go any further you should test the script by sending manual notifications and simulate alerts from a shell. Example command lines are povided below along with the example screenshots.
 
+## Set up the new Media Type in Zabbix
+On the Zabbix console (make sure you have administrative rights), open **Administration -> Media types** and click on **Create media type** on the top right. Fill in the parameters like in the following screenshot, changing them to your needs.
 
-
-
-
-
-
-
-
-
-
-
-
-
-## Define the notification commands in Zabbix configuration
-In the commands configuration file (usually `objects/commands.cfg`) add the Slack notification command. We need two commands, one for service notifications and one for hosts. Full descriptions is available in the [official Nagios docs](https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/objectdefinitions.html#command). What follows is an example:
-```
-# The commands used for Slack channel notifications. They use custom address fields (addressX) to define Slack specific parameters
-define command {
-   command_name     service-notify-by-slack
-   command_line     /usr/local/nagios/libexec/slack-nagios-alert.sh -U '$CONTACTADDRESS3$' -Q 'http://nagios.example.com/nagios' -t '$CONTACTADDRESS1$' -c '$CONTACTADDRESS2$' -u nagios -Y '$NOTIFICATIONTYPE$' -S '$SERVICEDESC$' -H '$HOSTNAME$' -A '$HOSTADDRESS$' -X '$SERVICESTATE$' -M '$SERVICEOUTPUT$' -T '$LONGDATETIME$'
-}
-
-define command {
-      command_name     host-notify-by-slack
-      command_line     /usr/local/nagios/libexec/slack-nagios-alert.sh -U '$CONTACTADDRESS3$' -Q 'http://nagios.example.com/nagios' -t '$CONTACTADDRESS1$' -c '$CONTACTADDRESS2$' -u nagios -Y '$NOTIFICATIONTYPE$' -H '$HOSTNAME$' -A '$HOSTADDRESS$' -X '$SERVICESTATE$' -M '$SERVICEOUTPUT$' -T '$LONGDATETIME$'
-}
-```
-
-## Define the contact in Nagios configuration
-In the contacts configuration file (usually `objects/contacts.cfg`) add the Slack notification contact. Full descriptions is available in the [official Nagios docs](https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/objectdefinitions.html#contact). What follows is an example:
-```
-define contact{
-   contact_name                    slack
-   alias                           Slack
-   
-   service_notification_commands   service-notify-by-slack
-   host_notification_commands      host-notify-by-slack
-
-   address1                        SLACK_TEAM              ; set the name of the Slack team
-   address2                        SLACK_CHANNEL           ; set the name of the Slack channel to post to
-   # Use the Slack Webhook URL here
-   address3                        https://hooks.slack.com/services/ABCDEFGHI/FGHIJKLMN/123abc456def789ldt645Bgs
-        }
-```
-
-This example models a contact that sends messages to a channel. As specified above you can use individual users instead, in which case you will use the `-c "@user"` syntax when invoking the script.
+![Zabbix Media Type Set Up](screenshots/zabbix-setup-media-type.jpg)
 
 
 
