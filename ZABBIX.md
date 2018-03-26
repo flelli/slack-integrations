@@ -1,6 +1,10 @@
 # Summary
 Here you can find detailed instructions and examples to send [Slack](https://slack.com/) notifications from [Zabbix](https://www.zabbix.com/) using the `slack-zabbix-alert.sh` shell script.
 
+A couple of remarks about the Zabbix behavior and script:
+* Zabbix encolses all parameters defined in the **Media types** with single quotes so that's why you'll see them declared that way in the examples
+* the attachment color is inferred by the subject line. If it contains the `PROBLEM` string then the output message (the attachment of) will appear in red, if instead it contains the string `OK` it will appear in green
+
 # Synopsis
 **Warning** Zabbix requires positional parameters, at least for the three first ones (`CHANNEL`, `SUBJECT`, `BODY`) so for them remember to declare them in the right order.
 
@@ -50,6 +54,9 @@ On the Zabbix console (make sure you have administrative rights), open **Configu
 Now you should be able to receive messages on Slack upon alerts.
 
 ## Example screenshots
+
+Please note that all parameters are enclosed in single quotes.
+
 ### A *Problem* message from Zabbix
 ![Zabbix Problem Alert](screenshots/zabbix-problem-example.jpg)
 
